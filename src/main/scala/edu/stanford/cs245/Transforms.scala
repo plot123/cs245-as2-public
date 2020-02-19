@@ -28,7 +28,7 @@ object Transforms {
 
   // Return any additional optimization passes here
   def getOptimizationPasses(spark: SparkSession): Seq[Rule[LogicalPlan]] = {
-    Seq(EliminateZeroDists(spark))
+    Seq(EliminateZeroDists(spark), ElimnateNegativeConstants(spark), ElimnateNegativeConstantsEq(spark), SquaringDist(spark))
   }
 
   case class EliminateZeroDists(spark: SparkSession) extends Rule[LogicalPlan] {
@@ -37,4 +37,23 @@ object Transforms {
         udf.children(1) == udf.children(3) => Literal(0.0, DoubleType)
     }
   }
+
+  case class ElimnateNegativeConstants(spark: SparkSession) extends Rule[LogicalPlan] {
+    def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
+      case LessThan(scalaUDF: ScalaUDF, Literal(0, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
+    }
+  }
+
+  case class ElimnateNegativeConstantsEq(spark: SparkSession) extends Rule[LogicalPlan] {
+    def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
+      case EqualTo(scalaUDF: ScalaUDF, Literal(-1, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
+    }
+  }
+
+  case class SquaringDist(spark: SparkSession) extends Rule[LogicalPlan]{
+    def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
+      case GreaterThan(scalaUDF: ScalaUDF, Literal(0, DoubleType)) if isDistUdf(scalaUDF) => Literal(true, BooleanType)
+    }
+  }
+
 }
