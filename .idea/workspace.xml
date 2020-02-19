@@ -2,7 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ce2eade-6315-4c04-9a28-708edb3681c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Transforms.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Transforms.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes.timestamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$checkFilter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$checkUdf$1$$anonfun$applyOrElse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$checkUdf$1$$anonfun$isDefinedAt$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$checkUdf$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$anonfun$main$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$$typecreator5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Tester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$$anonfun$getDistSqUdf$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$$anonfun$getDistSqUdfInt$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$$anonfun$isDistUdf$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$EliminateZeroDists$$anonfun$apply$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$EliminateZeroDists$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$EliminateZeroDists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstants$$anonfun$apply$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstants$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstantsEq$$anonfun$apply$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstantsEq$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$ElimnateNegativeConstantsEq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistBothExp$$anonfun$apply$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistBothExp$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistBothExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistLiteral$$anonfun$apply$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistLiteral$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms$SquaringDistLiteral.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/stanford/cs245/Transforms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cs245-as2-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Tester.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="2025">
               <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
               <folding>
                 <element signature="e#28#84#0" expanded="true" />
@@ -52,11 +96,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Transforms.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="53" column="127" selection-start-line="53" selection-start-column="127" selection-end-line="53" selection-end-column="127" />
+            <state relative-caret-position="572">
+              <caret line="59" column="138" selection-start-line="59" selection-start-column="138" selection-end-line="59" selection-end-column="138" />
               <folding>
                 <element signature="e#28#68#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.11/2.3.3/spark-catalyst_2.11-2.3.3-sources.jar!/org/apache/spark/sql/catalyst/expressions/predicates.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="538" column="7" selection-start-line="538" selection-start-column="7" selection-end-line="538" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -224,7 +277,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581654500577</updated>
-      <workItem from="1581654502107" duration="17248000" />
+      <workItem from="1581654502107" duration="19136000" />
     </task>
     <servers>
       <JIRA url="https://jira01.corp.linkedin.com:8443">
@@ -233,7 +286,7 @@
     </servers>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17248000" />
+    <option name="totallyTimeSpent" value="19136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -382,13 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.11/2.3.3/spark-catalyst_2.11-2.3.3-sources.jar!/org/apache/spark/sql/catalyst/expressions/predicates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="733" column="11" selection-start-line="733" selection-start-column="11" selection-end-line="733" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.11/2.3.3/spark-catalyst_2.11-2.3.3-sources.jar!/org/apache/spark/sql/catalyst/rules/Rule.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -400,16 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Tester.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
-          <folding>
-            <element signature="e#28#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.11/2.3.3/spark-catalyst_2.11-2.3.3-sources.jar!/org/apache/spark/sql/catalyst/expressions/literals.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1811">
@@ -417,10 +453,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Tester.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2025">
+          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
+          <folding>
+            <element signature="e#28#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-catalyst_2.11/2.3.3/spark-catalyst_2.11-2.3.3-sources.jar!/org/apache/spark/sql/catalyst/expressions/predicates.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="538" column="7" selection-start-line="538" selection-start-column="7" selection-end-line="538" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/edu/stanford/cs245/Transforms.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="53" column="127" selection-start-line="53" selection-start-column="127" selection-end-line="53" selection-end-column="127" />
+        <state relative-caret-position="572">
+          <caret line="59" column="138" selection-start-line="59" selection-start-column="138" selection-end-line="59" selection-end-column="138" />
           <folding>
             <element signature="e#28#68#0" expanded="true" />
           </folding>
