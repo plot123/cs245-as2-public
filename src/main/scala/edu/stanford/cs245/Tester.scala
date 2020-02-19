@@ -104,6 +104,7 @@ object Tester {
 
     val dataset = Seq((1.0, 1.0, 1.0, 1.0), (1.0, 1.0, 3.0, 3.0), (1.0, 1.0, 2.0, 2.0))
     val datasetNestedSeq = dataset.map(t => t.productIterator.toList)
+    println(s"datasetNestedSeq = $datasetNestedSeq");
     val df = dataset.toDF("x1", "y1", "x2", "y2")
     var query: Dataset[Row] = null
     var filter: Filter = null

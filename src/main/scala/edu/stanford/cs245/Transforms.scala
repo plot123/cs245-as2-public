@@ -1,11 +1,10 @@
 package edu.stanford.cs245
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.catalyst.expressions.{And, BinaryComparison, EqualTo, Expression, GreaterThan,
-  GreaterThanOrEqual, LessThan, LessThanOrEqual, Literal, Multiply, ScalaUDF}
+import org.apache.spark.sql.catalyst.expressions.{And, BinaryComparison, EqualTo, Expression, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual, Literal, Multiply, ScalaUDF}
 import org.apache.spark.sql.catalyst.plans.logical.{LogicalPlan, Sort}
 import org.apache.spark.sql.catalyst.rules.Rule
-import org.apache.spark.sql.types.{BooleanType, DoubleType}
+import org.apache.spark.sql.types.{BooleanType, DoubleType, IntegerType}
 
 object Transforms {
 
@@ -23,6 +22,16 @@ object Transforms {
         val yDiff = y1 - y2
         xDiff * xDiff + yDiff * yDiff
       }, DoubleType, args, Seq(DoubleType, DoubleType, DoubleType, DoubleType),
+      udfName = Some("dist_sq"))
+  }
+
+  def getDistSqUdfInt(args: Seq[Expression]): ScalaUDF = {
+    ScalaUDF(
+      (x1: Integer, y1: Integer, x2: Integer, y2: Integer) => {
+        val xDiff = x1 - x2
+        val yDiff = y1 - y2
+        xDiff * xDiff + yDiff * yDiff
+      }, IntegerType, args, Seq(IntegerType, IntegerType, IntegerType, IntegerType),
       udfName = Some("dist_sq"))
   }
 
@@ -52,7 +61,7 @@ object Transforms {
 
   case class SquaringDist(spark: SparkSession) extends Rule[LogicalPlan]{
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
-      case GreaterThan(scalaUDF: ScalaUDF, Literal(0, DoubleType)) if isDistUdf(scalaUDF) => Literal(true, BooleanType)
+      case GreaterThan(scalaUDF: ScalaUDF, Literal(0.0, DoubleType)) if isDistUdf(scalaUDF) => GreaterThan(getDistSqUdf(scalaUDF.children), Literal(0.0, DoubleType));
     }
   }
 
