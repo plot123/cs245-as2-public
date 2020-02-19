@@ -49,7 +49,7 @@ object Transforms {
 
   case class ElimnateNegativeConstants(spark: SparkSession) extends Rule[LogicalPlan] {
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
-      case LessThan(scalaUDF: ScalaUDF, Literal(0, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
+      case LessThan(scalaUDF: ScalaUDF, Literal(c:Double, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
     }
   }
 
