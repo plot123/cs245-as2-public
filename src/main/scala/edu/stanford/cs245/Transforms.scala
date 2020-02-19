@@ -50,6 +50,7 @@ object Transforms {
   case class ElimnateNegativeConstants(spark: SparkSession) extends Rule[LogicalPlan] {
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
       case LessThan(scalaUDF: ScalaUDF, Literal(c:Double, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
+      case GreaterThanOrEqual(Literal(c:Double, DoubleType), scalaUDF: ScalaUDF) if isDistUdf(scalaUDF) && (c<0.0) => Literal(false, BooleanType)
     }
   }
 
@@ -62,6 +63,7 @@ object Transforms {
   case class SquaringDistLiteral(spark: SparkSession) extends Rule[LogicalPlan]{
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
       case GreaterThan(scalaUDF: ScalaUDF, Literal(c:Double, DoubleType)) if isDistUdf(scalaUDF) => GreaterThan(getDistSqUdf(scalaUDF.children), Literal(c*c, DoubleType));
+      case GreaterThan(Literal(c:Double, DoubleType), scalaUDF: ScalaUDF) if isDistUdf(scalaUDF) => GreaterThan(Literal(c*c, DoubleType), getDistSqUdf(scalaUDF.children));
     }
   }
 
