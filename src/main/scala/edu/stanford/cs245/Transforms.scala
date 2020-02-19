@@ -51,6 +51,7 @@ object Transforms {
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
       case LessThan(scalaUDF: ScalaUDF, Literal(c:Double, DoubleType)) if isDistUdf(scalaUDF) => Literal(false, BooleanType)
       case GreaterThanOrEqual(Literal(c:Double, DoubleType), scalaUDF: ScalaUDF) if isDistUdf(scalaUDF) && (c<0.0) => Literal(false, BooleanType)
+      case LessThanOrEqual(Literal(c:Double, DoubleType), scalaUDF: ScalaUDF) if isDistUdf(scalaUDF) && (c<0.0) => Literal(true, BooleanType)
     }
   }
 
