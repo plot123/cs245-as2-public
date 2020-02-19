@@ -37,7 +37,7 @@ object Transforms {
 
   // Return any additional optimization passes here
   def getOptimizationPasses(spark: SparkSession): Seq[Rule[LogicalPlan]] = {
-    Seq(EliminateZeroDists(spark), ElimnateNegativeConstants(spark), ElimnateNegativeConstantsEq(spark), SquaringDist(spark))
+    Seq(EliminateZeroDists(spark), ElimnateNegativeConstants(spark), ElimnateNegativeConstantsEq(spark), SquaringDistLiteral(spark), SquaringDistBothExp(spark))
   }
 
   case class EliminateZeroDists(spark: SparkSession) extends Rule[LogicalPlan] {
@@ -59,9 +59,15 @@ object Transforms {
     }
   }
 
-  case class SquaringDist(spark: SparkSession) extends Rule[LogicalPlan]{
+  case class SquaringDistLiteral(spark: SparkSession) extends Rule[LogicalPlan]{
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
-      case GreaterThan(scalaUDF: ScalaUDF, Literal(0.0, DoubleType)) if isDistUdf(scalaUDF) => GreaterThan(getDistSqUdf(scalaUDF.children), Literal(0.0, DoubleType));
+      case GreaterThan(scalaUDF: ScalaUDF, Literal(c:Double, DoubleType)) if isDistUdf(scalaUDF) => GreaterThan(getDistSqUdf(scalaUDF.children), Literal(c*c, DoubleType));
+    }
+  }
+
+  case class SquaringDistBothExp(spark: SparkSession) extends Rule[LogicalPlan]{
+    def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
+      case GreaterThan(udf1: ScalaUDF, udf2:ScalaUDF) if isDistUdf(udf1) && isDistUdf(udf2) => GreaterThan(getDistSqUdf(udf1.children), getDistSqUdf(udf2.children));
     }
   }
 
