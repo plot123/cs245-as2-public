@@ -5,6 +5,7 @@ import org.apache.spark.sql.catalyst.expressions.{And, BinaryComparison, EqualTo
 import org.apache.spark.sql.catalyst.plans.logical.{LogicalPlan, Sort}
 import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.types.{BooleanType, DoubleType, IntegerType}
+import org.apache.spark.sql.catalyst.expressions.SortOrder
 
 object Transforms {
 
@@ -37,7 +38,7 @@ object Transforms {
 
   // Return any additional optimization passes here
   def getOptimizationPasses(spark: SparkSession): Seq[Rule[LogicalPlan]] = {
-    Seq(EliminateZeroDists(spark),EliminateZeroDists2(spark), ElimnateNegativeConstants(spark), ElimnateNegativeConstantsEq(spark), SquaringDistLiteral(spark), SquaringDistBothExp(spark))
+    Seq(EliminateZeroDists(spark),EliminateZeroDists2(spark), ElimnateNegativeConstants(spark), ElimnateNegativeConstantsEq(spark), SquaringDistLiteral(spark), SquaringDistBothExp(spark), ElimSorts(spark))
   }
 
   case class EliminateZeroDists(spark: SparkSession) extends Rule[LogicalPlan] {
@@ -77,6 +78,26 @@ object Transforms {
   case class SquaringDistBothExp(spark: SparkSession) extends Rule[LogicalPlan]{
     def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
       case GreaterThan(udf1: ScalaUDF, udf2:ScalaUDF) if isDistUdf(udf1) && isDistUdf(udf2) => GreaterThan(getDistSqUdf(udf1.children), getDistSqUdf(udf2.children));
+    }
+  }
+
+  // Sort order
+  // TODO add it getOptimizationPassΩ
+  /*case class SortOrderHandler(spark: SparkSession) extends Rule[LogicalPlan]{
+    def apply(plan: LogicalPlan): LogicalPlan = plan.transformAllExpressions {
+      case udf: ScalaUDF if SortOrder(udf.children) && isDistUdf(udf) => getDistSqUdf(udf.children);
+    }
+  }*/
+
+  /**
+    * Removes no-op SortOrder from Sort
+    */
+  case class ElimSorts(spark: SparkSession) extends Rule[LogicalPlan] {
+    def apply(plan: LogicalPlan): LogicalPlan = plan transformAllExpressions {
+      case SortOrder(child: ScalaUDF, direction, nullOrdering, sameOrderExpressions) if isDistUdf(child) => {
+        SortOrder(getDistSqUdf(child.children), direction, nullOrdering, sameOrderExpressions)
+
+      }
     }
   }
 
